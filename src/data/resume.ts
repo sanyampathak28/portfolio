@@ -17,11 +17,11 @@ const resume = {
       dateRange: 'Feb - Dec 2024',
       project: 'OKR Tracker Application',
       bullets: [
-        'Designed and developed an enterprise-level OKR management system using Spring Boot microservices, enabling 1000+ employees to track goals, progress, and performance.',
-        'Fulfilled non-functional requirements capable of sustaining 30+ requests/sec, supporting 1,000+ active OKRs across 150+ teams, while maintaining sub-250 ms average API latency under concurrent load.',
-        'Achieved 99.8% service availability by implementing stateless Spring Boot services, health checks, and automated restarts, reducing production incidents by 60% during peak usage periods.',
-        'Implemented role-based access control and secure authentication, enforcing permissions across 4 user roles and protecting 10,000+ sensitive OKR records, with zero reported authorization breaches.',
-        'Deployed backend Java services on AWS EKS and frontend via CloudFront using CloudFormation, designing API Gateway with rate limiting and configuring EKS auto-scaling.'
+        'Led design and implementation of a Spring Boot microservices OKR platform used by 1,000+ employees — delivered end-to-end features for goal tracking, progress visualization, and manager reviews.',
+        'Engineered services to meet strict NFRs: sustained 30+ RPS and maintained sub-250ms avg API latency under load, improving user experience and reducing time-to-dashboard.',
+        'Improved production reliability to 99.8% uptime by introducing stateless services, health checks, and automated restarts — cut incident volume by ~60% during peak periods.',
+        'Built robust RBAC and authentication flows securing 10,000+ OKR records across 4 user roles, with zero authorization incidents in production.',
+        'Owned cloud deployment on AWS (EKS, API Gateway, CloudFront) with CloudFormation; implemented rate-limiting and horizontal autoscaling to handle traffic spikes.'
       ]
     },
     {
@@ -31,11 +31,11 @@ const resume = {
       dateRange: 'Jan 2025 - Present',
       project: 'ERCP – Goldman Sachs',
       bullets: [
-        'Designed and implemented a backend service to automate reconciliation file generation and transfer, processing 50,000+ financial transactions per run for downstream enterprise systems.',
-        'Built optimized database queries to extract reconciliation data, transforming results into structured CSV files with 100% schema compliance for external consumption.',
-        'Automated secure FTP-based file transfers between internal and external servers, eliminating manual steps and reducing operational effort by 80%.',
-        'Scheduled and executed batch workflows with end-to-end automation, ensuring timely delivery of reconciliation files with zero missed SLA windows.',
-        'Implemented validation and error-handling mechanisms, detecting data mismatches and transfer failures early, reducing reconciliation defects by 60%.'
+        'Architected a backend service that automated reconciliation file generation for Goldman Sachs, processing 50k+ transactions per run and delivering reliable data to downstream systems.',
+        'Optimized complex DB queries and ETL logic to produce CSV outputs with 100% schema compliance, reducing downstream parsing errors and manual corrections.',
+        'Automated secure SFTP transfers and end-to-end batch orchestration, removing manual handoffs and cutting operational effort by ~80%.',
+        'Built robust validation and retry logic to catch mismatches early — decreased reconciliation defects by ~60% and ensured zero missed SLA windows.',
+        'Instrumented monitoring and alerting to surface failures quickly and reduce mean time to recovery for batch jobs.'
       ]
     }
   ],
@@ -56,12 +56,12 @@ const resume = {
   projects: [
     {
       name: 'Handwritten Number Recognizer',
-      desc: 'Developed a machine learning model to recognize handwritten digits using image classification techniques, trained on grayscale digit images to accurately predict numbers from 0–9.',
+      desc: 'Built and shipped an image-classification pipeline that identifies handwritten digits (0–9) with high precision; preprocessed grayscale images, trained models, and evaluated performance to maximize accuracy.',
       tech: ['Python', 'scikit-learn', 'NumPy', 'OpenCV']
     },
     {
       name: 'n8n Automation Flow for Social Media Posts',
-      desc: 'Designed and implemented an end-to-end automation workflow using n8n to generate and publish social media posts automatically, integrating AI-based content generation, scheduling, and platform APIs.',
+      desc: 'Designed an n8n-driven automation that uses AI-generated copy, scheduling logic, and API integrations to publish social posts — cut manual posting time and maintained consistent audience engagement.',
       tech: ['n8n', 'REST APIs', 'AI Content Generation', 'Webhooks']
     }
   ]
