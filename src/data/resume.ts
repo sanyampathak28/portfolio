@@ -8,7 +8,7 @@ const resume = {
     leetcode: 'https://leetcode.com/u/sanyampathak/',
     hackerrank: 'https://www.hackerrank.com/profile/sanyampathak111'
   },
-  summary: 'Backend-focused software engineer who builds high-throughput, reliable cloud-native systems (Java, Spring Boot, Kubernetes, AWS). Delivered production services processing 50k+ transactions per run and improved availability to 99.8% while optimizing API latency to <250ms; strong in observability, automation (CI/CD), and performance tuning. Seeking roles where I can drive scalability, reliability, and measurable business impact.',
+  summary: 'Backend engineer specializing in cloud-native Java services (Spring Boot, Kubernetes, AWS). Built and operated high-throughput systems processing 50k+ transactions per run, improved availability to 99.8%, and reduced manual effort ~80% through automation. Strong in performance tuning, observability, CI/CD, and scalable architecture.',
   experiences: [
     {
       company: 'Publicis Sapient',
