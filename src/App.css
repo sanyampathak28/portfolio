@@ -65,8 +65,9 @@ img, video, iframe { max-width:100%; height:auto; display:block }
 .exp ul{margin:6px 0 0 0;padding-left:18px;list-style-position:inside}
 .exp li{margin-bottom:8px}
 
-/* Make the Experience section content align left and occupy available width on small screens */
-#experience .container{max-width:100%;padding-left:12px;padding-right:12px}
+/* Note: experience full-bleed rules are applied inside the mobile media query below to
+   avoid affecting desktop layout where the centered container should remain.
+   (See the @media (max-width:900px) block further down.) */
 
 .skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
 .projects-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
@@ -99,6 +100,21 @@ img, video, iframe { max-width:100%; height:auto; display:block }
   .nav-toggle{display:block}
   .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--card);box-shadow:0 8px 30px rgba(0,0,0,0.6);padding:12px 18px;z-index:60}
   .nav.open{display:block}
+  /* Make the entire experience section full-bleed (100vw) so it isn't constrained by the page container */
+  #experience{
+    width:100vw;
+    position:relative;
+    left:50%;
+    right:50%;
+    margin-left:-50vw;
+    margin-right:-50vw;
+    box-sizing:border-box;
+    padding-left:12px;
+    padding-right:12px;
+  }
+  /* Ensure inner container and cards take the full width on mobile */
+  #experience .container{max-width:none; width:100%; margin:0; padding:0}
+  .exp{width:100%}
   /* ensure header overlays content cleanly */
   .site-header{position:sticky;top:0;z-index:70}
 }
