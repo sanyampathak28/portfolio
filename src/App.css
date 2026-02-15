@@ -14,6 +14,17 @@
 *{box-sizing:border-box}
 body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial; margin:0; background:var(--bg); color:var(--text); -webkit-font-smoothing:antialiased}
 .container{max-width:1100px; margin:0 auto; padding:18px}
+/* avoid horizontal scroll on small screens */
+body, html { overflow-x: hidden; }
+
+/* Defensive layout rules to prevent horizontal overflow */
+html, body, #root, .app-root { width:100%; max-width:100%; overflow-x:hidden; }
+.container{box-sizing:border-box}
+
+img, video, iframe { max-width:100%; height:auto; display:block }
+
+/* Force long text to wrap (prevents overflowing long words/URLs) */
+.exp, .project-card, .hero, .lead { word-wrap: break-word; overflow-wrap: break-word; }
 
 .site-header{backdrop-filter: blur(6px); background:rgba(255,255,255,0.02); border-bottom:1px solid rgba(255,255,255,0.04); position:sticky; top:0; z-index:40}
 .header-inner{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 0}
@@ -21,6 +32,13 @@ body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Rob
 .brand .muted{color:var(--muted);font-size:13px;margin-top:4px}
 .nav a{color:var(--muted);margin-left:12px;text-decoration:none;padding:10px 12px;border-radius:8px;font-weight:600}
 .nav a:hover{background:rgba(255,255,255,0.03); color:var(--accent)}
+
+/* hamburger toggle - hidden on desktop */
+.nav-toggle{display:none;border:0;background:transparent;padding:8px;margin-left:12px;align-self:center}
+.nav-toggle span{display:block;width:22px;height:2px;background:var(--muted);margin:4px 0;border-radius:2px;transition:transform .18s ease, opacity .18s ease}
+.nav-toggle.open span:nth-child(1){transform:translateY(6px) rotate(45deg)}
+.nav-toggle.open span:nth-child(2){opacity:0}
+.nav-toggle.open span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
 
 .hero{padding:36px 0}
 .hero-inner{display:flex;gap:20px;align-items:flex-start}
@@ -41,10 +59,14 @@ body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Rob
 
 /* visual separation between stacked sections (subtle divider for clarity) */
 .section + .section{border-top:1px solid rgba(255,255,255,0.02);padding-top:28px;margin-top:18px}
-.exp{margin-bottom:18px;padding:18px;border-radius:12px;background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,0.6)}
+.exp{margin-bottom:18px;padding:12px 14px;border-radius:12px;background:var(--card);box-shadow:0 6px 18px rgba(0,0,0,0.6)}
 .exp-header{display:flex;justify-content:space-between;align-items:flex-end;gap:12px}
 .exp-role{color:var(--muted);margin-bottom:8px}
-.exp ul{margin:6px 0 0 18px}
+.exp ul{margin:6px 0 0 0;padding-left:18px;list-style-position:inside}
+.exp li{margin-bottom:8px}
+
+/* Make the Experience section content align left and occupy available width on small screens */
+#experience .container{max-width:100%;padding-left:12px;padding-right:12px}
 
 .skill-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
 .projects-list{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:14px}
@@ -61,17 +83,24 @@ body{font-family:Inter, ui-sans-serif, system-ui, -apple-system, 'Segoe UI', Rob
 @media (max-width:900px){
   .hero-inner{flex-direction:column}
   .contact-grid{grid-template-columns:1fr}
-  .header-inner{flex-direction:column;align-items:flex-start;gap:10px}
-  /* Make nav links touch-friendly and full-width on mobile */
+  /* keep header content inline (brand + toggle) on one row for compact layout */
+  .header-inner{flex-direction:row;align-items:center;gap:8px}
+  /* Make nav links touch-friendly and full-width when opened */
   .nav{width:100%}
   .nav a{display:block;margin:6px 0;padding:12px 14px;border-radius:10px}
-  .brand{width:100%}
+  .brand{flex:1}
   .quick-contact{min-width:unset;margin-left:0}
-  .container{padding:12px}
+  .container{padding:12px;max-width:100%}
   .hero h2{font-size:22px}
   .project-card{padding:14px}
   .projects-list{grid-template-columns:1fr}
   .skill-grid{grid-template-columns:1fr}
+  /* show hamburger and hide inline nav until toggled */
+  .nav-toggle{display:block}
+  .nav{display:none;position:absolute;left:0;right:0;top:100%;background:var(--card);box-shadow:0 8px 30px rgba(0,0,0,0.6);padding:12px 18px;z-index:60}
+  .nav.open{display:block}
+  /* ensure header overlays content cleanly */
+  .site-header{position:sticky;top:0;z-index:70}
 }
 
 /* small helpers and root defaults from vite template */

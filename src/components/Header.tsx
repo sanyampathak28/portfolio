@@ -1,7 +1,11 @@
-import React from 'react'
+import React, { useState } from 'react'
 import resume from '../data/resume'
 
 const Header: React.FC = () => {
+  const [open, setOpen] = useState(false)
+
+  const handleLinkClick = () => setOpen(false)
+
   return (
     <header className="site-header">
       <div className="container header-inner">
@@ -9,11 +13,22 @@ const Header: React.FC = () => {
           <h1>{resume.name}</h1>
           <p className="muted">{resume.title}</p>
         </div>
-        <nav className="nav">
-          <a href="#experience">Experience</a>
-          <a href="#projects">Projects</a>
-          <a href="#skills">Skills</a>
-          <a href="#contact">Contact</a>
+
+        <button
+          className={`nav-toggle ${open ? 'open' : ''}`}
+          aria-label="Toggle navigation"
+          onClick={() => setOpen(!open)}
+        >
+          <span />
+          <span />
+          <span />
+        </button>
+
+        <nav className={`nav ${open ? 'open' : ''}`}>
+          <a href="#experience" onClick={handleLinkClick}>Experience</a>
+          <a href="#projects" onClick={handleLinkClick}>Projects</a>
+          <a href="#skills" onClick={handleLinkClick}>Skills</a>
+          <a href="#contact" onClick={handleLinkClick}>Contact</a>
         </nav>
       </div>
     </header>
